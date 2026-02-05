@@ -17,7 +17,7 @@ If not installed, download from [python.org](https://www.python.org/downloads/)
 
 **Option A - Git:**
 ```bash
-git clone https://github.com/yourusername/bioprinting-cfd-analysis.git
+git clone https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025
 cd bioprinting-cfd-analysis
 ```
 
@@ -215,8 +215,8 @@ pip install -r requirements.txt
 ## 📞 Get Help
 
 - **Documentation**: [README.md](README.md)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/bioprinting-cfd-analysis/issues)
-- **Questions**: [GitHub Discussions](https://github.com/yourusername/bioprinting-cfd-analysis/discussions)
+- **Issues**: [GitHub Issues](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/issues)
+
 
 ## 🎉 Success!
 
