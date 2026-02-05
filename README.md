@@ -484,7 +484,7 @@ If you use this tool in your research, please cite:
 ```bibtex
 @software{bioprinting_cfd_tool,
   title={Interactive Bioprinting CFD Analysis Tool},
-  author={[Your Name]},
+  author={[Amir Hossein Osooli]},
   year={2026},
   url={https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025}
 }
@@ -494,6 +494,11 @@ If you use this tool in your research, please cite:
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
+## 👤 Author
+
+**AmirHossein Osooli**
+- Project: Bioprinting CFD Analysis - CFD1 course
+  
 ## 🙏 Acknowledgments
 
 - **Emmermacher et al. (2020)** for the theoretical framework
