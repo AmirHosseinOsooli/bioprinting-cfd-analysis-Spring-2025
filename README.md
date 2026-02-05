@@ -9,18 +9,30 @@ An interactive computational fluid dynamics (CFD) analysis tool for extrusion-ba
 
 ## 📋 Table of Contents
 
+- [Live Demo](#live-demo)
 - [Overview](#overview)
 - [Key Features](#key-features)
 - [Scientific Background](#scientific-background)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Usage Guide](#usage-guide)
+- [Deployment](#deployment)
 - [Theory and Methods](#theory-and-methods)
 - [Results Interpretation](#results-interpretation)
 - [Examples](#examples)
 - [Contributing](#contributing)
 - [Citation](#citation)
 - [License](#license)
+
+## 🌐 Live Demo
+
+**🚀 Try the app now - no installation required!**
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://YOUR-APP-URL.streamlit.app)
+
+**Live URL:** `https://YOUR-APP-URL.streamlit.app` (Update after deployment)
+
+> **Note:** To deploy your own live version, see [DEPLOYMENT.md](DEPLOYMENT.md) for step-by-step instructions.
 
 ## 🔍 Overview
 
@@ -388,6 +400,41 @@ Shows maximum shear stress as a function of pressure and diameter:
    - Confirm predicted flow rates
    - Test cell viability
    - Adjust as needed
+
+## 🌐 Deployment
+
+### Deploy as Live Web App (Recommended)
+
+Make your tool accessible to anyone online with **Streamlit Cloud** (100% free):
+
+1. **Push to GitHub**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
+
+2. **Deploy on Streamlit Cloud**
+   - Go to https://share.streamlit.io
+   - Sign in with GitHub
+   - Click "New app"
+   - Select your repository and `app.py`
+   - Click "Deploy"
+
+3. **Get your live URL!**
+   - Format: `https://yourapp.streamlit.app`
+   - Share with anyone - no installation needed
+
+📖 **Complete deployment guide:** See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions
+
+### Other Deployment Options
+- Docker containers
+- Heroku
+- AWS/Google Cloud
+- Hugging Face Spaces
+
+All options covered in [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## 💡 Examples
 
