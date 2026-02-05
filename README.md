@@ -506,7 +506,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 - **Issues**: [GitHub Issues](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/discussions)
-- **Email**: your.email@institution.edu
+- **Email**: amirh.osooli@ut.ac.ir
 
 ## 🔗 Related Resources
 
