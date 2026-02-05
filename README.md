@@ -505,26 +505,12 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 ## 📞 Contact
 
 - **Issues**: [GitHub Issues](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/discussions)
 - **Email**: amirh.osooli@ut.ac.ir
 
 ## 🔗 Related Resources
 
-### Software
-- [ANSYS Fluent](https://www.ansys.com/products/fluids/ansys-fluent) - Full CFD simulation
-- [OpenFOAM](https://www.openfoam.com/) - Open-source CFD
-- [Slic3r](https://slic3r.org/) - 3D printing slicing
-
 ### Research Papers
-- Paxton et al. (2017) - Printability assessment
-- Blaeser et al. (2016) - Shear stress in bioprinting
-- Li et al. (2011) - Needle geometry effects
-
-### Databases
-- [Bioink Database](https://bioink.com) - Commercial bioinks
-- [ASTM Standards](https://www.astm.org/) - Bioprinting standards
-
----
+- Emmermacher et al. (2020) - Engineering considerations on extrusion-based bioprinting: interactions of material behavior, mechanical forces and cells in the printing needle
 
 **Version**: 1.0.0  
 **Last Updated**: February 2026  
