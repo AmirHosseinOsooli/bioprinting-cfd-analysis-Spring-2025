@@ -486,7 +486,7 @@ If you use this tool in your research, please cite:
   title={Interactive Bioprinting CFD Analysis Tool},
   author={[Your Name]},
   year={2026},
-  url={https://github.com/yourusername/bioprinting-cfd-analysis}
+  url={https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025}
 }
 ```
 
@@ -504,8 +504,8 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ## 📞 Contact
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/bioprinting-cfd-analysis/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/bioprinting-cfd-analysis/discussions)
+- **Issues**: [GitHub Issues](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/discussions)
 - **Email**: your.email@institution.edu
 
 ## 🔗 Related Resources
