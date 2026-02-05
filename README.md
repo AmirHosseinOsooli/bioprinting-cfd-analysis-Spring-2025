@@ -130,7 +130,7 @@ pip install streamlit numpy scipy matplotlib pandas plotly
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/bioprinting-cfd-analysis.git
+git clone https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025.git
 cd bioprinting-cfd-analysis
 ```
 
