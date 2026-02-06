@@ -1,0 +1,42 @@
+# Example Bioink Parameters
+# Copy these values into the Streamlit app sidebar to test different bioinks
+
+## AMA Bioink (Alginate-Methylcellulose-Agarose)
+# Reference: Emmermacher et al. (2020)
+tau_0 = 60  # Pa
+k = 790  # Pa·s^n
+n = 0.2
+density = 984.44  # kg/m³
+
+## Alginate Solution (3%)
+# Typical alginate-only bioink
+tau_0 = 10  # Pa
+k = 100  # Pa·s^n
+n = 0.5
+density = 1005  # kg/m³
+
+## GelMA (Gelatin Methacrylate) 5%
+# Photo-crosslinkable hydrogel
+tau_0 = 20  # Pa
+k = 200  # Pa·s^n
+n = 0.4
+density = 1010  # kg/m³
+
+## Methylcellulose 3%
+# Lower viscosity, more fluid
+tau_0 = 5  # Pa
+k = 70  # Pa·s^n
+n = 0.42
+density = 998  # kg/m³
+
+## Collagen 0.3%
+# Natural ECM protein
+tau_0 = 8  # Pa
+k = 50  # Pa·s^n
+n = 0.6
+density = 1003  # kg/m³
+
+# Typical Printing Parameters:
+# - Needle Diameter: 0.25, 0.41, 0.61, 0.84, 1.2 mm
+# - Applied Pressure: 50-400 kPa
+# - Target Shear Stress: < 1500 Pa for MSCs, < 2000 Pa for fibroblasts
