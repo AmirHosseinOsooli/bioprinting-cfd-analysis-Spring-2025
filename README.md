@@ -103,17 +103,7 @@ Analyzes fluid flow of bioinks through printing needles to optimize:
 
 ## 🚀 Quick Start
 
-### Option 1: Live Web App (Recommended)
-
-1. Visit: **https://bioprinting-cfd.streamlit.app**
-2. Adjust parameters in sidebar
-3. View results instantly
-4. Generate nomograms
-5. Export data
-
-**No installation required!**
-
-### Option 2: Run Locally
+### Run Locally
 
 ```bash
 # Quick setup (Linux/macOS)
