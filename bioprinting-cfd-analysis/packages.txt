@@ -1,3 +1,0 @@
-# System packages required for Streamlit Cloud deployment
-# These will be installed automatically when deploying to Streamlit Cloud
-# Leave empty if no system packages are needed beyond Python packages
