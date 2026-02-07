@@ -11,16 +11,6 @@ Optimize bioprinting processes for **cell viability** and **print quality** thro
 
 ---
 
-## 🌐 Live Demo
-
-**🚀 Try it now - No installation required!**
-
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bioprinting-cfd.streamlit.app)
-
-**Live URL:** https://bioprinting-cfd.streamlit.app
-
----
-
 ## 📸 Application Screenshots
 
 ### Main Dashboard
