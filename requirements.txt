@@ -5,6 +5,7 @@ scipy>=1.10.0
 matplotlib>=3.7.0
 pandas>=2.0.0
 plotly>=5.14.0
+Pillow>=9.0.0
 
 # Optional Dependencies for Enhanced Features
 jupyter>=1.0.0  # For notebooks

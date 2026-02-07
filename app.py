@@ -198,14 +198,29 @@ class BioPrintingCFD:
 def main():
     st.set_page_config(page_title="Bioprinting CFD Analysis Tool", 
                        page_icon="🧬", 
-                       layout="wide")
+                       layout="wide",
+                       initial_sidebar_state="expanded")
     
+    # Header
     st.title("🧬 Interactive Bioprinting CFD Analysis Tool")
-    st.markdown("""
-    **Based on Emmermacher et al. (2020) - Herschel-Bulkley Fluid Model**
     
-    This tool analyzes the fluid flow of bioinks through printing needles, helping optimize bioprinting processes for cell viability and print quality.
-    """)
+    # Add badges and info
+    col1, col2, col3 = st.columns([2, 1, 1])
+    with col1:
+        st.markdown("""
+        **Based on Emmermacher et al. (2020) - Herschel-Bulkley Fluid Model**
+        
+        This tool analyzes the fluid flow of bioinks through printing needles, helping optimize 
+        bioprinting processes for cell viability and print quality.
+        """)
+    with col2:
+        st.metric("Model", "Herschel-Bulkley")
+        st.metric("Analysis", "CFD")
+    with col3:
+        st.metric("Method", "Analytical")
+        st.metric("Accuracy", "O(Δx²)")
+    
+    st.markdown("---")
     
     # Sidebar for parameters
     st.sidebar.header("📊 Bioink Properties")
@@ -234,6 +249,50 @@ def main():
     
     pressure = st.sidebar.slider("Applied Pressure (kPa)", 
                                 min_value=50.0, max_value=500.0, value=200.0, step=25.0)
+    
+    # Help section in sidebar
+    st.sidebar.markdown("---")
+    with st.sidebar.expander("ℹ️ Help & Tips"):
+        st.markdown("""
+        **Quick Guide:**
+        
+        1. Adjust bioink properties above
+        2. Set process parameters
+        3. View results in main panel
+        4. Check cell viability warnings
+        5. Generate nomograms for optimization
+        
+        **Default: AMA Bioink**
+        - τ₀ = 60 Pa
+        - k = 790 Pa·s^n  
+        - n = 0.2
+        - Good for MSCs
+        
+        **Tips:**
+        - Lower pressure = safer cells
+        - Larger diameter = faster print
+        - Watch red viability warnings
+        """)
+    
+    with st.sidebar.expander("📖 Example Bioinks"):
+        st.markdown("""
+        **Try these parameters:**
+        
+        **Alginate 3%**
+        - τ₀: 10 Pa
+        - k: 100 Pa·s^n
+        - n: 0.5
+        
+        **GelMA 5%**
+        - τ₀: 20 Pa
+        - k: 200 Pa·s^n
+        - n: 0.4
+        
+        **Collagen 0.3%**
+        - τ₀: 8 Pa
+        - k: 50 Pa·s^n
+        - n: 0.6
+        """)
     
     # Initialize CFD analysis
     cfd = BioPrintingCFD(tau_0=tau_0, k=k, n=n, density=density)
@@ -364,7 +423,47 @@ def main():
     # Nomogram section
     st.subheader("🎯 Process Design Nomograms")
     
-    if st.button("Generate Nomograms"):
+    # Show example nomograms first
+    st.markdown("### 📊 Example Nomograms (AMA Bioink)")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("**Mass Flow Rate vs Diameter & Pressure**")
+        try:
+            from PIL import Image
+            import os
+            
+            # Try to load example image
+            img_path = os.path.join("assets", "nomogram_flow.png")
+            if os.path.exists(img_path):
+                img = Image.open(img_path)
+                st.image(img, use_column_width=True)
+            else:
+                st.info("Example image not found. Generate your own nomogram below!")
+        except Exception as e:
+            st.info("Generate nomograms below to see the visualization")
+    
+    with col2:
+        st.markdown("**Maximum Shear Stress vs Diameter & Pressure**")
+        try:
+            from PIL import Image
+            import os
+            
+            img_path = os.path.join("assets", "nomogram_stress.png")
+            if os.path.exists(img_path):
+                img = Image.open(img_path)
+                st.image(img, use_column_width=True)
+            else:
+                st.info("Example image not found. Generate your own nomogram below!")
+        except Exception as e:
+            st.info("Generate nomograms below to see the visualization")
+    
+    st.markdown("---")
+    st.markdown("### 🔄 Generate Custom Nomograms")
+    st.markdown("Click below to generate nomograms for your current bioink parameters:")
+    
+    if st.button("Generate Custom Nomograms"):
         with st.spinner("Generating nomograms..."):
             # Generate nomogram data
             diameters = np.linspace(0.2e-3, 1.5e-3, 8)
@@ -486,6 +585,57 @@ def main():
             file_name=f"bioprinting_report_D{diameter}mm_P{pressure}kPa.txt",
             mime="text/plain"
         )
+
+    # Footer
+    st.markdown("---")
+    st.markdown("### 📚 About This Tool")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.markdown("""
+        **🔬 Scientific Basis**
+        - Herschel-Bulkley fluid model
+        - Analytical solution method
+        - Validated against CFD simulations
+        - Based on peer-reviewed research
+        
+        📖 **Citation:**  
+        Emmermacher et al. (2020)  
+        *Biofabrication* 12(2): 025022
+        """)
+    
+    with col2:
+        st.markdown("""
+        **✨ Features**
+        - Real-time flow analysis
+        - Cell viability assessment
+        - Process optimization nomograms
+        - Interactive visualizations
+        - Data export capabilities
+        
+        💻 **Technology:**  
+        Python + Streamlit + SciPy
+        """)
+    
+    with col3:
+        st.markdown("""
+        **📞 Support & Links**
+        - [GitHub Repository](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025)
+        - [Documentation](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025#readme)
+        - [Report Issues](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/issues)
+        
+        📄 **License:** MIT  
+        🔓 Open Source
+        """)
+    
+    st.markdown("---")
+    st.markdown("""
+    <div style='text-align: center; color: #666; padding: 20px;'>
+        <p>🧬 Bioprinting CFD Analysis Tool | Version 1.0.0 | 2026</p>
+        <p>Developed for research and education in tissue engineering and biofabrication</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()

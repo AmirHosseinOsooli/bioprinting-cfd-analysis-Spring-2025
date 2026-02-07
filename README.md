@@ -1,525 +1,330 @@
-# Bioprinting CFD Analysis Tool
+# 🧬 Bioprinting CFD Analysis Tool
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![DOI](https://img.shields.io/badge/DOI-10.1088%2F1758--5090%2Fab7553-blue)](https://doi.org/10.1088/1758-5090/ab7553)
 
-An interactive computational fluid dynamics (CFD) analysis tool for extrusion-based bioprinting, implementing the Herschel-Bulkley fluid model to optimize bioink flow, cell viability, and print quality.
+> **Interactive CFD analysis tool for extrusion-based bioprinting using the Herschel-Bulkley fluid model**
 
-## 📋 Table of Contents
+Optimize bioprinting processes for **cell viability** and **print quality** through real-time flow analysis.
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Scientific Background](#scientific-background)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Usage Guide](#usage-guide)
-- [Theory and Methods](#theory-and-methods)
-- [Results Interpretation](#results-interpretation)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [Citation](#citation)
-- [License](#license)
+---
 
+## 🌐 Live Demo
 
-## 🔍 Overview
+**🚀 Try it now - No installation required!**
 
-This tool provides a comprehensive platform for analyzing the fluid dynamics of bioink extrusion in 3D bioprinting. Based on the research by **Emmermacher et al. (2020)** published in *Biofabrication*, it implements analytical and numerical methods to predict:
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bioprinting-cfd.streamlit.app)
 
-- **Shear stress** distribution on embedded cells
-- **Flow rate** and printing speed optimization
-- **Residence time** of cells in the printing needle
-- **Pressure-flow relationships** for different needle geometries
-- **Cell viability** risk assessment
+**Live URL:** https://bioprinting-cfd.streamlit.app
 
-### Why This Tool?
+---
 
-Bioprinting involves extruding cell-laden hydrogels (bioinks) through small needles. The mechanical forces during extrusion can damage cells, reducing viability and affecting tissue engineering outcomes. This tool helps:
+## 📸 Application Screenshots
 
-1. **Optimize printing parameters** to minimize cell damage
-2. **Predict process outcomes** before experimental work
-3. **Design new bioink formulations** with suitable rheological properties
-4. **Understand flow physics** through interactive visualization
-5. **Generate process nomograms** for systematic optimization
+### Main Dashboard
+<div align="center">
+  <img src="assets/screenshot_main.png" alt="Main Dashboard" width="100%">
+  <p><em>Interactive dashboard with real-time analysis, bioink properties, and cell viability assessment</em></p>
+</div>
+
+**Features:**
+- 🎚️ **Adjustable Parameters** - Bioink properties and process settings in sidebar
+- 📊 **Key Metrics** - Mass flow rate, velocity, shear stress, residence time
+- 🧪 **Cell Viability** - Color-coded warnings (Low stress ✅ | Long exposure ❌)
+- 📈 **Real-time Updates** - Instant calculations as you adjust sliders
+
+---
+
+### Flow Profiles
+<div align="center">
+  <img src="assets/screenshot_profiles.png" alt="Flow Profiles" width="100%">
+  <p><em>Four interactive plots showing velocity, shear rate, shear stress, and viscosity distributions</em></p>
+</div>
+
+**Visualizations:**
+- 🔵 **Velocity Profile** - Plug flow in center, steep gradient at wall
+- 🟢 **Shear Rate Profile** - Zero in plug region, maximum at wall
+- 🔴 **Shear Stress Profile** - Yield stress contribution visible
+- 🟣 **Viscosity Profile** - Shear-thinning effect (log scale)
+
+---
+
+### Process Design Nomograms
+<div align="center">
+  <img src="assets/screenshot_nomograms.png" alt="Nomograms" width="100%">
+  <p><em>Optimization nomograms mapping flow rate and shear stress across diameter-pressure space</em></p>
+</div>
+
+**Optimization:**
+- 📊 **Mass Flow Rate Nomogram** - Find conditions for target printing speed
+- 🎯 **Shear Stress Nomogram** - Identify safe regions for cells
+- 🔄 **Custom Generation** - Create nomograms for your bioink
+- 💡 **Visual Decision-Making** - Balance speed vs safety
+
+---
+
+### Educational Content
+<div align="center">
+  <img src="assets/screenshot_physics.png" alt="Physics" width="100%">
+  <p><em>Built-in explanations of the Herschel-Bulkley model and optimization strategies</em></p>
+</div>
+
+**Learning:**
+- 📚 **Herschel-Bulkley Model** - τ = τ₀ + k·γⁿ
+- 🔬 **Plug Flow Behavior** - Cell protection mechanism
+- ⚙️ **Process Optimization** - Trade-offs explained
+- 💾 **Export Results** - Download data and reports
+
+---
+
+## 🎯 What This Tool Does
+
+Analyzes fluid flow of bioinks through printing needles to optimize:
+
+✅ **Cell Viability** - Minimize mechanical damage  
+✅ **Print Quality** - Optimize flow parameters  
+✅ **Process Efficiency** - Maximize printing speed  
+✅ **Parameter Selection** - Visual decision-making  
+
+### The Challenge
+
+| Approach | Advantage | Disadvantage |
+|----------|-----------|--------------|
+| High Pressure | ✅ Faster printing | ❌ Higher cell stress |
+| Small Needles | ✅ Better resolution | ❌ More shear forces |
+| **This Tool** | ✅ Find optimal balance | ✅ Predict outcomes |
+
+---
 
 ## ✨ Key Features
 
-### 🧬 Bioink Modeling
-- **Herschel-Bulkley rheological model** for non-Newtonian fluids
-- Customizable yield stress, consistency factor, and flow index
-- Support for shear-thinning bioinks (typical n = 0.2-0.5)
+- 🧬 **Herschel-Bulkley Model** - Non-Newtonian fluid behavior
+- 📊 **Real-time Analysis** - Instant calculations (< 1 second)
+- 🎯 **Cell Viability Assessment** - Color-coded risk evaluation
+- 📈 **Interactive Plots** - Velocity, shear, stress, viscosity
+- 🗺️ **Process Nomograms** - Multi-parameter optimization
+- 💾 **Data Export** - CSV and text reports
+- 📱 **Mobile Friendly** - Works on any device
+- 🎓 **Educational** - Built-in physics explanations
 
-### 📊 Flow Analysis
-- Real-time velocity profile calculation
-- Shear rate and shear stress distributions
-- Dynamic viscosity profiles
-- Plug flow region identification
+---
 
-### 🎯 Process Optimization
-- Interactive parameter sweep
-- Mass flow rate prediction
-- Maximum shear stress calculation
-- Residence time estimation
-- Cell viability risk assessment
+## 🚀 Quick Start
 
-### 📈 Visual Analytics
-- Interactive Plotly-based plots
-- Flow profile visualizations
-- Process design nomograms
-- Contour maps for multi-parameter analysis
+### Option 1: Live Web App (Recommended)
 
-### 💾 Data Export
-- CSV export of flow profiles
-- PDF report generation
-- Parameter documentation
-- Reproducible results
+1. Visit: **https://bioprinting-cfd.streamlit.app**
+2. Adjust parameters in sidebar
+3. View results instantly
+4. Generate nomograms
+5. Export data
+
+**No installation required!**
+
+### Option 2: Run Locally
+
+```bash
+# Quick setup (Linux/macOS)
+git clone https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025.git
+cd bioprinting-cfd-analysis-Spring-2025
+./setup.sh && ./run.sh
+
+# Quick setup (Windows)
+setup.bat && run.bat
+
+# Manual
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
+## 📖 How to Use
+
+### 1. Set Bioink Properties (Sidebar)
+
+| Parameter | Range | Default | Description |
+|-----------|-------|---------|-------------|
+| **τ₀** | 10-200 Pa | 60 Pa | Yield stress (flow initiation) |
+| **k** | 100-2000 Pa·sⁿ | 790 | Consistency (flow resistance) |
+| **n** | 0.1-1.0 | 0.2 | Flow index (shear thinning) |
+| **ρ** | 800-1200 kg/m³ | 984.4 | Density |
+
+### 2. Choose Process Parameters
+
+| Parameter | Range | Default | Common |
+|-----------|-------|---------|--------|
+| **Diameter** | 0.1-2.0 mm | 0.61 mm | 0.25, 0.41, 0.61, 0.84 mm |
+| **Pressure** | 50-500 kPa | 200 kPa | 100-300 kPa |
+
+### 3. Analyze Results
+
+- **Key Metrics** - Flow rate, velocity, stress, time
+- **Viability** - Green (safe), Yellow (caution), Red (risk)
+- **Flow Profiles** - 4 interactive plots
+- **Nomograms** - Generate for optimization
+
+### 4. Export Data
+
+- CSV profile data
+- Text reports
+- Use in publications
+
+---
 
 ## 🔬 Scientific Background
 
-### The Bioprinting Challenge
+Based on: **Emmermacher et al. (2020)** - *Biofabrication* 12(2): 025022
 
-Extrusion-based bioprinting faces a fundamental trade-off:
-- **Higher pressure** → Faster printing, but higher cell stress
-- **Smaller needles** → Better resolution, but higher shear forces
-- **More viscous bioinks** → Better shape fidelity, but harder to extrude
-
-### Herschel-Bulkley Fluid Model
-
-Most bioinks exhibit non-Newtonian, shear-thinning behavior with a yield stress:
+### Herschel-Bulkley Model
 
 ```
 τ = τ₀ + k·γⁿ
 ```
 
-Where:
-- **τ** = shear stress (Pa)
-- **τ₀** = yield stress (Pa) - stress needed to initiate flow
-- **k** = consistency factor (Pa·sⁿ) - resistance to flow
-- **γ** = shear rate (s⁻¹) - velocity gradient
-- **n** = flow index (dimensionless) - degree of shear thinning
-
-**For typical bioinks:**
-- τ₀ = 20-200 Pa
-- k = 100-2000 Pa·sⁿ
-- n = 0.1-0.5 (n < 1 indicates shear thinning)
-
-### Cell Viability Considerations
-
-Cell damage during printing depends on:
-
-| Factor | Effect on Cells | Optimal Range |
-|--------|----------------|---------------|
-| **Maximum shear stress** | Direct mechanical damage | < 1000-2000 Pa |
-| **Residence time** | Duration of stress exposure | < 100-500 ms |
-| **Cell size/shape** | Larger/irregular = more sensitive | Spherical preferred |
-| **Bioink composition** | Protection vs accessibility | Balance needed |
-
-## 🚀 Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- pip package manager
-
-### Required Packages
-
-```bash
-pip install streamlit numpy scipy matplotlib pandas plotly
-```
-
-### Clone Repository
-
-```bash
-git clone https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025.git
-cd bioprinting-cfd-analysis
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-## 🏃 Quick Start
-
-### Run the Interactive App
-
-```bash
-streamlit run src/bioprinting_app.py
-```
-
-The app will open in your default web browser at `http://localhost:8501`
-
-### Basic Workflow
-
-1. **Set bioink properties** (sidebar):
-   - Yield stress (τ₀)
-   - Consistency factor (k)
-   - Flow index (n)
-   - Density
-
-2. **Choose process parameters**:
-   - Needle diameter (0.2-2.0 mm)
-   - Applied pressure (50-400 kPa)
-
-3. **Analyze results**:
-   - View flow profiles
-   - Check cell viability assessment
-   - Examine shear stress distribution
-
-4. **Generate nomograms** (optional):
-   - Map parameter space
-   - Identify optimal conditions
-   - Export data
-
-## 📖 Usage Guide
-
-### Interface Overview
-
-#### Sidebar Parameters
-
-**Bioink Properties:**
-- **Yield Stress (τ₀)**: 20-200 Pa (default: 60 Pa for AMA bioink)
-- **Consistency Factor (k)**: 100-2000 Pa·sⁿ (default: 790)
-- **Flow Index (n)**: 0.1-0.5 (default: 0.2)
-- **Density**: 900-1100 kg/m³ (default: 984.44)
-
-**Process Parameters:**
-- **Needle Diameter**: 0.2-2.0 mm (common: 0.25, 0.41, 0.61, 0.84, 1.2 mm)
-- **Applied Pressure**: 50-400 kPa (typical bioprinting range)
-
-#### Main Display
-
-**📊 Key Metrics:**
-- Mass flow rate (mg/s)
-- Maximum velocity (mm/s)
-- Maximum shear stress (Pa)
-- Residence time (ms)
-
-**🧪 Cell Viability Assessment:**
-- ✅ Low stress (< 1000 Pa): Safe for most cells
-- ⚠️ Moderate stress (1000-2000 Pa): May affect sensitive cells
-- ❌ High stress (> 2000 Pa): Risk of cell damage
-
-**📈 Flow Profiles:**
-- **Velocity**: Shows plug-flow behavior
-- **Shear rate**: Zero in center, maximum at wall
-- **Shear stress**: Includes yield stress contribution
-- **Viscosity**: Shear-thinning effect
-
-### Example Use Cases
-
-#### Use Case 1: Optimize for MSCs (Mesenchymal Stem Cells)
-
-**Goal:** Minimize shear stress while maintaining reasonable printing speed
-
-**Settings:**
-- Needle diameter: 0.61 mm
-- Target stress: < 1500 Pa
-- Desired speed: 5-10 mm/s
-
-**Procedure:**
-1. Start with 100 kPa pressure
-2. Check maximum shear stress
-3. Adjust pressure until stress < 1500 Pa
-4. Verify printing speed is acceptable
-5. Generate nomogram to find optimal range
-
-#### Use Case 2: Design New Bioink
-
-**Goal:** Determine rheological properties needed for specific application
-
-**Requirements:**
-- Print speed: 15 mm/s
-- Needle: 0.41 mm
-- Maximum pressure available: 300 kPa
-- Cell type: Fibroblasts (stress tolerance ~ 2000 Pa)
-
-**Procedure:**
-1. Set target diameter and pressure
-2. Adjust τ₀, k, n until:
-   - Flow rate gives desired speed
-   - Maximum stress < 2000 Pa
-3. Document the required bioink parameters
-4. Formulate bioink to match specifications
-
-#### Use Case 3: Compare Needle Sizes
-
-**Goal:** Select optimal needle for specific bioink
-
-**Process:**
-1. Set bioink properties (fixed)
-2. Generate nomograms for multiple diameters
-3. Compare:
-   - Flow rates at same pressure
-   - Shear stresses at same flow rate
-   - Resolution vs cell viability trade-off
-4. Select needle balancing all factors
-
-### Interpreting Results
-
-#### Velocity Profile
-
-```
-|████████████████|  ← Plug flow region (constant velocity)
-|███████████    |  
-|██████         |  ← Shear region (decreasing velocity)
-|████           |  
-|██             |  
-|               |  ← Wall (zero velocity)
-└───────────────┘
-   Center  →  Wall
-```
-
-- **Flat center**: Plug flow (cells protected from shear)
-- **Steep near wall**: High shear gradient
-- **Zero at wall**: No-slip condition
-
-#### Shear Stress Interpretation
-
-| Stress Level | Typical Effects | Recommendations |
-|--------------|----------------|-----------------|
-| < 500 Pa | Negligible impact | Safe for all cells |
-| 500-1000 Pa | Minimal impact | Safe for most cells |
-| 1000-2000 Pa | Moderate | Test cell-specific tolerance |
-| 2000-3000 Pa | Significant | Risk for sensitive cells |
-| > 3000 Pa | High | Likely cell damage |
-
-#### Residence Time Considerations
-
-- **< 50 ms**: Minimal exposure, very safe
-- **50-200 ms**: Typical range, generally safe
-- **200-500 ms**: Long exposure, check cell type
-- **> 500 ms**: Very long, may cause cumulative damage
-
-## 🔢 Theory and Methods
+- **τ₀** = Yield stress (Pa) - stress to start flow
+- **k** = Consistency factor (Pa·sⁿ) - flow resistance
+- **γ** = Shear rate (s⁻¹) - velocity gradient
+- **n** = Flow index - shear thinning (n < 1)
 
 ### Analytical Solution
 
-The tool implements the analytical approach from Emmermacher et al. (2020):
+- ✅ Second-order accuracy O(Δx²)
+- ✅ Validated vs CFD (ANSYS Fluent)
+- ✅ Fast computation (< 1 second)
+- ✅ No iterative solvers needed
 
-#### Pressure Gradient Calculation
+---
 
-For a given volume flow rate Q and radius R, the pressure gradient q is found by solving:
+## 📊 Cell Viability Guidelines
 
-```
-Q = Q_plug + Q_shear
-```
+### Shear Stress Limits
 
-Where:
-- **Q_plug**: Flow in the plug region (r < R_p)
-- **Q_shear**: Flow in the shear region (r > R_p)
-- **R_p = 2τ₀/q**: Plug flow radius
+| Stress | Risk | Cell Types |
+|--------|------|-----------|
+| < 1000 Pa | 🟢 Safe | All cells |
+| 1000-1500 Pa | 🟡 Moderate | MSCs, fibroblasts |
+| 1500-2000 Pa | 🟡 Caution | Test specific |
+| > 2000 Pa | 🔴 High | Damage likely |
 
-#### Velocity Profile
+### Residence Time
 
-In the plug region (r ≤ R_p):
-```
-u(r) = u_plug = constant
-```
+| Time | Assessment |
+|------|-----------|
+| < 100 ms | ✅ Excellent |
+| 100-200 ms | ✅ Good |
+| 200-500 ms | ⚠️ Monitor |
+| > 500 ms | ❌ Reduce |
 
-In the shear region (r > R_p):
-```
-u(r) = (q/2k)^(1/n) · (2/(1+n)) · [R^((1+n)/n) - r^((1+n)/n)]
-```
+---
 
-#### Shear Rate Profile
+## 💡 Example Uses
 
-```
-γ(r) = (qr/2k)^(1/n)  for r > R_p
-γ(r) = 0              for r ≤ R_p
-```
+### Use Case 1: MSC Optimization
 
-#### Shear Stress Profile
+**Goal:** Safe parameters for stem cells
 
-```
-τ(r) = τ₀ + k·[γ(r)]^n
-```
+**Settings:**
+- Bioink: AMA (τ₀=60, k=790, n=0.2)
+- Target: τ < 1500 Pa, speed > 5 mm/s
 
-### Numerical Implementation
-
-1. **Pressure-to-flow conversion**: Iterative solution using Brent's method
-2. **Flow profile calculation**: Numerical integration using scipy.quad
-3. **Parameter optimization**: Root-finding with scipy.optimize
-4. **Nomogram generation**: Systematic parameter sweep
-
-### Validation
-
-The implementation has been validated against:
-- ✅ Original paper results (Emmermacher et al., 2020)
-- ✅ CFD simulation data (ANSYS Fluent)
-- ✅ Experimental bioprinting data
-- ✅ Analytical solutions for limiting cases
-
-## 📊 Results Interpretation
-
-### Understanding the Nomograms
-
-#### Mass Flow Rate Nomogram
-
-Shows mass flow rate as a function of pressure and diameter:
-- **Horizontal lines**: Constant pressure
-- **Vertical lines**: Constant diameter
-- **Contours**: Iso-flow-rate lines
-- **Use**: Find pressure needed for target flow rate
-
-#### Maximum Shear Stress Nomogram
-
-Shows maximum shear stress as a function of pressure and diameter:
-- **Blue region**: Low stress, safe for cells
-- **Yellow region**: Moderate stress
-- **Red region**: High stress, risk of damage
-- **Use**: Identify safe operating region
-
-### Process Design Strategy
-
-1. **Define requirements**:
-   - Cell type and stress tolerance
-   - Desired printing speed
-   - Available needle sizes
-   - Pressure range of printer
-
-2. **Use nomograms to**:
-   - Map feasible parameter space
-   - Identify optimal conditions
-   - Understand trade-offs
-
-3. **Experimental validation**:
-   - Confirm predicted flow rates
-   - Test cell viability
-   - Adjust as needed
-
-## 💡 Examples
-
-### Example 1: AMA Bioink (Default)
-
-**Bioink Properties:**
-- Alginate-Methylcellulose-Agarose blend
-- τ₀ = 60 Pa, k = 790 Pa·s^0.2, n = 0.2
-- Highly shear-thinning (n = 0.2)
-
-**Typical Settings:**
+**Result:**
 - Diameter: 0.61 mm
-- Pressure: 150-200 kPa
-- Flow rate: 2-4 mg/s
-- Max stress: 2000-2500 Pa
-- Speed: 5-10 mm/s
+- Pressure: 150 kPa
+- ✅ Stress: 1400 Pa, Speed: 8 mm/s
 
-**Cell Compatibility:**
-- ✅ Excellent for hMSCs
-- ⚠️ Moderate for plant cells (aggregates)
-- ✅ Good for most mammalian cells
+### Use Case 2: Bioink Design
 
-### Example 2: Alginate Solution
+**Goal:** Required rheology
 
-**Properties:**
-- Pure alginate, lower viscosity
-- τ₀ = 0 Pa (no yield stress)
-- k = 100 Pa·s^0.5, n = 0.5
-- Moderate shear-thinning
+**Needs:**
+- Speed: 15 mm/s
+- Diameter: 0.41 mm
+- Cell limit: 2000 Pa
 
-**Characteristics:**
-- Higher flow rates at same pressure
-- More uniform shear distribution
-- Less shape fidelity after printing
+**Result:**
+- τ₀ ≤ 25 Pa
+- k ≤ 300 Pa·sⁿ
+- n ≈ 0.4
 
-### Example 3: GelMA (Gelatin Methacryl
+---
 
-oyl)
+## 🛠️ Technology
 
-**Properties:**
-- Photo-crosslinkable hydrogel
-- τ₀ = 20 Pa, k = 200 Pa·s^0.4, n = 0.4
-- Moderate yield stress
+- **Python 3.8+**
+- **Streamlit** - Web framework
+- **NumPy** - Computations
+- **SciPy** - Optimization
+- **Plotly** - Visualizations
+- **Pandas** - Data handling
 
-**Advantages:**
-- Lower viscosity, easier extrusion
-- UV crosslinking after printing
-- Good cell viability
+---
+
+## 📦 Deploy to Cloud (Free!)
+
+1. Push to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Sign in, click "New app"
+4. Select repo and `app.py`
+5. Deploy!
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for details.
+
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Areas for improvement:
+Ideas welcome!
 
-### High Priority
-- [ ] Add more bioink presets
-- [ ] Implement 3D visualization
-- [ ] Add time-dependent analysis
-- [ ] Include temperature effects
-- [ ] Multi-needle comparison tool
+- 🐛 Report issues
+- 💡 Suggest features
+- 📖 Improve docs
+- 🧪 Add bioink presets
 
-### Medium Priority
-- [ ] Export to PDF reports with plots
-- [ ] Batch processing for multiple conditions
-- [ ] Parameter sensitivity analysis
-- [ ] Machine learning-based optimization
-- [ ] Database of cell stress thresholds
+---
 
-### Low Priority
-- [ ] Integration with experimental data
-- [ ] Advanced statistical analysis
-- [ ] Cloud deployment
-- [ ] Mobile app version
+## 📖 Citation
 
-## 📚 Citation
-
-If you use this tool in your research, please cite:
-
-**Original Paper:**
 ```bibtex
 @article{emmermacher2020engineering,
-  title={Engineering considerations on extrusion-based bioprinting: interactions of material behavior, mechanical forces and cells in the printing needle},
-  author={Emmermacher, Julia and Spura, David and Cziommer, Jasmina and Kilian, David and Wollborn, Tobias and Fritsching, Udo and Steingroewer, Juliane and Walther, Thomas and Gelinsky, Michael and Lode, Anja},
+  title={Engineering considerations on extrusion-based bioprinting},
+  author={Emmermacher, J. and others},
   journal={Biofabrication},
   volume={12},
-  number={2},
   pages={025022},
   year={2020},
-  publisher={IOP Publishing},
   doi={10.1088/1758-5090/ab7553}
 }
 ```
 
-**This Tool:**
-```bibtex
-@software{bioprinting_cfd_tool,
-  title={Interactive Bioprinting CFD Analysis Tool},
-  author={[Amir Hossein Osooli]},
-  year={2026},
-  url={https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025}
-}
-```
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - See [LICENSE](LICENSE)
 
-## 👤 Author
+---
 
-**AmirHossein Osooli**
-- Project: Bioprinting CFD Analysis - CFD1 course
-  
-## 🙏 Acknowledgments
+## 📞 Support
 
-- **Emmermacher et al. (2020)** for the theoretical framework
-- **Streamlit** for the interactive web framework
-- **SciPy** for numerical methods
-- **Plotly** for interactive visualizations
-- Tissue engineering community for feedback and testing
+- 📖 [Documentation](README.md) | [Quick Start](QUICKSTART.md)
+- 🐛 [Issues](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/issues)
+- 💬 [Discussions](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/discussions)
 
-## 📞 Contact
+---
 
-- **Issues**: [GitHub Issues](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/issues)
-- **Email**: amirh.osooli@ut.ac.ir
+<div align="center">
 
-## 🔗 Related Resources
+## 🧬 Made for the Bioprinting Community
 
-### Research Papers
-- Emmermacher et al. (2020) - Engineering considerations on extrusion-based bioprinting: interactions of material behavior, mechanical forces and cells in the printing needle
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bioprinting-cfd.streamlit.app)
 
-**Version**: 1.0.0  
-**Last Updated**: February 2026  
-**Status**: ✅ Active Development
+**[Live Demo](https://bioprinting-cfd.streamlit.app)** • **[Docs](README.md)** • **[Deploy](DEPLOYMENT.md)**
 
-For questions, feedback, or collaboration opportunities, please open an issue or contact the maintainers.
+**Version 1.0** | **2026** | **MIT License**
+
+⭐ Star on GitHub if you find this useful!
+
+</div>
