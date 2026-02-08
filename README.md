@@ -240,19 +240,6 @@ Based on: **Emmermacher et al. (2020)** - *Biofabrication* 12(2): 025022
 - **Plotly** - Visualizations
 - **Pandas** - Data handling
 
----
-
-## 📦 Deploy to Cloud (Free!)
-
-1. Push to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Sign in, click "New app"
-4. Select repo and `app.py`
-5. Deploy!
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for details.
-
----
 
 ## 🤝 Contributing
 
@@ -299,9 +286,6 @@ MIT License - See [LICENSE](LICENSE)
 
 ## 🧬 Made for the Bioprinting Community
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bioprinting-cfd.streamlit.app)
-
-**[Live Demo](https://bioprinting-cfd.streamlit.app)** • **[Docs](README.md)** • **[Deploy](DEPLOYMENT.md)**
 
 **Version 1.0** | **2026** | **MIT License**
 
