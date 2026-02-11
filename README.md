@@ -274,6 +274,13 @@ MIT License - See [LICENSE](LICENSE)
 
 ---
 
+```
+## 👤 Author
+
+**AmirHossein Osooli**
+- Project: Computational Fluid Dynamics 1 final project
+---
+
 ## 📞 Support
 
 - 📖 [Documentation](README.md) | [Quick Start](QUICKSTART.md)
