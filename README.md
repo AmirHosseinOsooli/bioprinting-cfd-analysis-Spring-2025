@@ -278,7 +278,7 @@ MIT License - See [LICENSE](LICENSE)
 ## 👤 Author
 
 **AmirHossein Osooli**
-- Project: Computational Fluid Dynamics 1 final project
+- Computational Fluid Dynamics 1 Final Project
 ---
 
 ## 📞 Support
@@ -288,8 +288,6 @@ MIT License - See [LICENSE](LICENSE)
 - 💬 [Discussions](https://github.com/AmirHosseinOsooli/bioprinting-cfd-analysis-Spring-2025/discussions)
 
 ---
-
-<div align="center">
 
 ## 🧬 Made for the Bioprinting Community
 
